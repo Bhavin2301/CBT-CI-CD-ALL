@@ -14,7 +14,7 @@ jobs:
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Deploy Node.js Backend
-          repo: Bhavin2301/CBT_Backend.git
+          repo: https://github.com/Bhavin2301/CBT-Backend
           token: ${{ secrets.GH_PAT }}
 
   trigger-frontend:
