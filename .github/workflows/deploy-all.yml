@@ -1,0 +1,29 @@
+name: Deploy Full Application
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+  push:
+    branches:
+      - main  # Runs when code is pushed to 'main'
+
+jobs:
+  trigger-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Backend Deployment
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Deploy Node.js Backend
+          repo: Bhavin2301/CBT_Backend.git
+          token: ${{ secrets.GH_PAT }}
+
+  trigger-frontend:
+    runs-on: ubuntu-latest
+    needs: trigger-backend  # Ensures backend deploys first
+    steps:
+      - name: Trigger Flutter Deployment
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Flutter CI/CD
+          repo: Bhavin2301/CBT_APP.git
+          token: ${{ secrets.GH_PAT }}
