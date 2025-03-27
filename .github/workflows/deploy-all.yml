@@ -1,6 +1,6 @@
 ### MASTER WORKFLOW (CBT-CI-CD-ALL)
 ### MASTER WORKFLOW (CBT-CI-CD-ALL)
-name: Deploy Full Application
+name: Deploy Node.js Backend
 
 on:
   workflow_dispatch:
