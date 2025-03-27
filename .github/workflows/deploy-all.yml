@@ -1,6 +1,5 @@
 ### MASTER WORKFLOW (CBT-CI-CD-ALL)
-### MASTER WORKFLOW (CBT-CI-CD-ALL)
-name: Deploy Node.js Backend
+name: Deploy Full Application
 
 on:
   workflow_dispatch:
@@ -15,10 +14,9 @@ jobs:
       - name: Trigger Backend Deployment
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: "Deploy Node.js Backend"
+          workflow: Deploy Node.js Backend
           repo: Bhavin2301/CBT-Backend
           token: ${{ secrets.GH_PAT }}
-
 
   trigger-frontend:
     runs-on: ubuntu-latest
